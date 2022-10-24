@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Estilo.css">
+</head>
+
+<body>
+    <div class="tela_do_jogo">
+        <img src="./img/clouds.png" class="nuvens">
+        <span id="reiniciar" class="reiniciar">
+            <button>aa</button>
+        </span>
+        <img src="./img/pipe.png" class="cano">
+        <img src="./img/mario.gif" class="mario" id="mario">
+    </div>
+    <button onclick="pulo()"> Pular </button>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<script>
+    const cano = document.querySelector('.cano')
+
+    /* função pulo */
+    function pulo() {
+        mario.classList.add('pulo');
+
+        /*set um tempo, depois de 500milisegundos vai tirar a class pulo para que ele possa pular novamente */
+        setTimeout(() => {
+            mario.classList.remove('pulo');
+        }, 500);
+
+    }
+
+    const loop = setInterval(() => {
+        const posicao_do_cano = cano.offsetLeft;
+
+        /* Pegando o estilo computado na tag class mario (pegando o bottom pq é de cima para baixo
+        retirando a frase Pixel com o replace e transformando em numero) */
+        const posicao_do_mario = Number(window.getComputedStyle(mario).bottom.replace('px', ''));
+
+
+        /*Se a posição do cano for menor ou igual a 120  e aposição do cano
+         for maior q 0 e menor que 80 pare a animação do cano e deixe ele na posição que ele parou 
+         E
+            altere a imagem que ta e coloque a imagem, deixando seu tamanho em 70px e sua margin 50px
+                     
+         */
+        if (posicao_do_cano <= 120 && posicao_do_cano > 0 && posicao_do_mario < 80) {
+
+            cano.style.animation = 'none';
+            cano.style.left = `${posicao_do_cano}px`;
+
+            mario.style.animation = 'none';
+            mario.style.bottom = `${posicao_do_mario}px`
+
+            mario.src = './img/game-over.png'
+            mario.style.width = '70px'
+            mario.style.marginLeft = '50px'
+
+
+        }
+    }, 10);
+
+    /* Quando qualquer tecla prescionada ele ativa a função púlo */
+    document.addEventListener('keydown', pulo)
+</script>
