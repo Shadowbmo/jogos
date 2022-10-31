@@ -15,14 +15,15 @@
     /* comando que quando sair da tela ela ficar ''escondida'' */
     overflow: hidden;
 
-    background: linear-gradient(#87CEE8, #E0F6FF);
+    background-image: url(./img/fundoNaruto.jpg);
+    background-: no-repeat;
 }
 
 .cano {
     /* Deixa tudo absolute para não interferir um no outro */
     position: absolute;
-    width: 60px;
-
+    width: 70px;
+    height: 100px;
     /* Definindo a animação do cano, que vai ser 2s 
     e linear */
 
