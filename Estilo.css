@@ -19,22 +19,22 @@
     background-: no-repeat;
 }
 
-.cano {
+.fogo {
     /* Deixa tudo absolute para não interferir um no outro */
     position: absolute;
     width: 70px;
     height: 100px;
-    /* Definindo a animação do cano, que vai ser 2s 
+    /* Definindo a animação do fogo, que vai ser 2s 
     e linear */
 
-    animation: animacao_do_cano 1.5s infinite linear;
+    animation: animacao_do_fogo 1.5s infinite linear;
     /* colocando ele no começo da tela */
     bottom: 0;
 
 }
 
-.mario {
-    width: 150px;
+.toga {
+    width: 400px;
     position: absolute;
     bottom: 0;
 }
@@ -52,7 +52,7 @@
     position: absolute;
     bottom: center;
 }
-@keyframes animacao_do_cano {
+@keyframes animacao_do_fogo {
 
     /* aonde vai começar a animação e onde vai terminar 
     queremos que comece em 0 e termine em 100 */
